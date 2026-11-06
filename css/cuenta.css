@@ -17,6 +17,7 @@
 .caja-cuenta input[aria-invalid="true"] { border-color: var(--coral); }
 .caja-cuenta label small { font: 400 12px/1.4 var(--mono); color: var(--ash); }
 .caja-cuenta .aviso { margin-bottom: 16px; padding: 12px 16px; border-radius: 12px; background: var(--ember); color: var(--white); }
+.caja-cuenta .aviso.ok { background: var(--grf); border: 1px solid var(--line); }
 .caja-cuenta .btn { width: 100%; margin-top: 8px; border: 0; text-align: center; cursor: pointer; }
 .caja-cuenta .btn:disabled { opacity: .6; cursor: progress; }
 .nota-cuenta { margin-top: 24px; font: 400 12px/1.5 var(--mono); color: var(--ash); }

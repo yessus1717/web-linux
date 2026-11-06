@@ -3,6 +3,7 @@
    Forma de lo guardado: { v: 1, lecciones: { "u1l2": { h: [0, 1, 4] }, "que-es-linux": { h: [0, 1] } },
                            ultima: { id, href, titulo, t }, dias: ["2026-11-05", ...], u: id de la cuenta dueña de estos datos (si hay) }
    "h" son los índices de tarjeta hechos. Si cambias el contenido de una lección, los índices siguen valiendo mientras no reordenes tarjetas.
+   La clave de cada lección es su "id" en elementos/linuxpath-ejercicios.json (nunca su posición): no lo cambies una vez publicada.
    Si cambias la forma de los datos, sube v y la CLAVE. En la portada también pinta el avance (lecciones, unidades y panel "Tu progreso"). */
 (() => {
   const CLAVE = 'linuxpath:progreso:v1';
@@ -107,8 +108,9 @@
 
   /* ---------- portada: avance en las lecciones, las unidades y el panel "Tu progreso" ---------- */
   const idDeHref = (href) => {
-    const m = /practica\.html\?u=(\d+)&l=(\d+)/.exec(href || '');
-    return m ? `u${m[1]}l${m[2]}` : /que-es-linux/.test(href || '') ? 'que-es-linux' : null;
+    // Enlace nuevo (?id=navegacion) o antiguo (?u=1&l=2, que equivale al id u1l2)
+    const m = /practica\.html\?(?:id=([a-z0-9-]+)|u=(\d+)&l=(\d+))/.exec(href || '');
+    return m ? (m[1] || `u${m[2]}l${m[3]}`) : /que-es-linux/.test(href || '') ? 'que-es-linux' : null;
   };
   const el = (tag, clase, texto, padre) => {
     const e = document.createElement(tag);

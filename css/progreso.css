@@ -21,3 +21,14 @@ a.completa .n, a.en-curso .n, a.completa .etq, a.en-curso .etq { color: #52feca;
 .nav-entrar, .nav-salir { padding: 0; border: 0; background: none; color: var(--ash, #9c9c9d); font: inherit; text-decoration: none; cursor: pointer; transition: color .15s; }
 .nav-entrar:hover, .nav-salir:hover { color: var(--white, #fff); }
 .nav-user { max-width: 12ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--mist, #e6e6e6); }
+.nav-registro { padding: 6px 12px; border: 1px solid var(--line, #26282c); border-radius: 8px; color: var(--mist, #e6e6e6); text-decoration: none; white-space: nowrap; transition: border-color .15s, color .15s; }
+.nav-registro:hover { border-color: #52feca; color: #52feca; }
+
+/* Sección de la portada que invita a crear cuenta (solo sin sesión; la muestra js/sesion.js) */
+#acceso[hidden] { display: none; }
+.card.acceso { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 32px; }
+.card.acceso > div:first-child { flex: 1 1 320px; }
+.card.acceso h2 { margin: 8px 0; }
+.card.acceso .lead { margin: 0; }
+.card.acceso .acciones { margin: 0; }
+@media (max-width: 640px) { .nav-registro { display: none; } } /* en móvil queda "Entrar" en la barra y la sección de la portada */

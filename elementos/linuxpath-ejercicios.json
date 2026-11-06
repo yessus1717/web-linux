@@ -43,6 +43,7 @@
       "subtitle": "Unidad 1 · Nivel 1",
       "lessons": [
         {
+          "id": "u1l0",
           "title": "¿Qué es Linux?",
           "sub": "Conceptos básicos",
           "status": "active",
@@ -546,6 +547,7 @@
           ]
         },
         {
+          "id": "u1l1",
           "title": "La terminal",
           "sub": "Tu herramienta principal",
           "status": "active",
@@ -926,6 +928,7 @@
           ]
         },
         {
+          "id": "u1l2",
           "title": "Navegación",
           "sub": "pwd, ls, cd",
           "status": "active",
@@ -1208,6 +1211,7 @@
           ]
         },
         {
+          "id": "u1l3",
           "title": "Archivos",
           "sub": "crear y organizar",
           "status": "active",
@@ -1509,6 +1513,7 @@
           ]
         },
         {
+          "id": "u1l4",
           "title": "Repaso",
           "sub": "Pon todo en práctica",
           "status": "active",
@@ -1812,6 +1817,7 @@
           ]
         },
         {
+          "id": "u1l5",
           "title": "Desafío final",
           "sub": "Resuélvelo por tu cuenta",
           "status": "active",
@@ -1889,6 +1895,7 @@
       "subtitle": "Unidad 2 · Nivel 2",
       "lessons": [
         {
+          "id": "u2l0",
           "title": "Comandos encadenados",
           "sub": "pipes y redirecciones (|, >, >>)",
           "status": "active",
@@ -2265,6 +2272,7 @@
           ]
         },
         {
+          "id": "u2l1",
           "title": "Buscar archivos",
           "sub": "find y locate",
           "status": "active",
@@ -2601,6 +2609,7 @@
           ]
         },
         {
+          "id": "u2l2",
           "title": "Buscar texto",
           "sub": "grep y expresiones básicas",
           "status": "active",
@@ -2988,6 +2997,7 @@
           ]
         },
         {
+          "id": "u2l3",
           "title": "Historial y atajos",
           "sub": "history, Ctrl+R, autocompletado",
           "status": "active",
@@ -3446,6 +3456,7 @@
           ]
         },
         {
+          "id": "u2l4",
           "title": "Repaso",
           "sub": "Pon todo en práctica",
           "status": "active",
@@ -3766,6 +3777,7 @@
           ]
         },
         {
+          "id": "u2l5",
           "title": "Desafío final",
           "sub": "Resuélvelo por tu cuenta",
           "status": "active",
@@ -3975,6 +3987,7 @@
       "subtitle": "Unidad 3 · Nivel 3",
       "lessons": [
         {
+          "id": "u3l0",
           "title": "Propietarios y grupos",
           "sub": "usuario, grupo, otros",
           "status": "active",
@@ -4190,6 +4203,7 @@
           ]
         },
         {
+          "id": "u3l1",
           "title": "Permisos rwx",
           "sub": "lectura, escritura, ejecución",
           "status": "active",
@@ -4540,6 +4554,7 @@
           ]
         },
         {
+          "id": "u3l2",
           "title": "chmod",
           "sub": "notación numérica y simbólica",
           "status": "active",
@@ -4856,6 +4871,7 @@
           ]
         },
         {
+          "id": "u3l3",
           "title": "chown y chgrp",
           "sub": "cambiar propietario y grupo",
           "status": "active",
@@ -5207,6 +5223,7 @@
           ]
         },
         {
+          "id": "u3l4",
           "title": "Repaso",
           "sub": "Pon todo en práctica",
           "status": "active",
@@ -5502,6 +5519,7 @@
           ]
         },
         {
+          "id": "u3l5",
           "title": "Desafío final",
           "sub": "Resuélvelo por tu cuenta",
           "status": "active",
@@ -5628,6 +5646,7 @@
       "subtitle": "Unidad 4 · Nivel 4",
       "lessons": [
         {
+          "id": "u4l0",
           "title": "¿Qué es un proceso?",
           "sub": "PID, procesos padre e hijo",
           "status": "active",
@@ -5914,6 +5933,7 @@
           ]
         },
         {
+          "id": "u4l1",
           "title": "Ver procesos",
           "sub": "ps y top",
           "status": "active",
@@ -6233,6 +6253,7 @@
           ]
         },
         {
+          "id": "u4l2",
           "title": "Segundo plano",
           "sub": "&, jobs, fg, bg",
           "status": "active",
@@ -6449,6 +6470,7 @@
           ]
         },
         {
+          "id": "u4l3",
           "title": "Terminar procesos",
           "sub": "kill y las señales comunes",
           "status": "active",
@@ -6648,6 +6670,7 @@
           ]
         },
         {
+          "id": "u4l4",
           "title": "Repaso",
           "sub": "Pon todo en práctica",
           "status": "active",
@@ -6896,6 +6919,7 @@
           ]
         },
         {
+          "id": "u4l5",
           "title": "Desafío final",
           "sub": "Resuélvelo por tu cuenta",
           "status": "active",
@@ -7026,6 +7050,7 @@
       "subtitle": "Unidad 5 · Nivel 5",
       "lessons": [
         {
+          "id": "u5l0",
           "title": "Conceptos de red",
           "sub": "IP, puertos, DNS básico",
           "status": "active",
@@ -7322,6 +7347,7 @@
           ]
         },
         {
+          "id": "u5l1",
           "title": "ping y traceroute",
           "sub": "probar conectividad",
           "status": "active",
@@ -7510,6 +7536,7 @@
           ]
         },
         {
+          "id": "u5l2",
           "title": "curl y wget",
           "sub": "peticiones desde la terminal",
           "status": "active",
@@ -7671,6 +7698,7 @@
           ]
         },
         {
+          "id": "u5l3",
           "title": "ssh básico",
           "sub": "conectarte a otra máquina",
           "status": "active",
@@ -7965,6 +7993,7 @@
           ]
         },
         {
+          "id": "u5l4",
           "title": "Repaso",
           "sub": "Pon todo en práctica",
           "status": "active",
@@ -8225,6 +8254,7 @@
           ]
         },
         {
+          "id": "u5l5",
           "title": "Desafío final",
           "sub": "Resuélvelo por tu cuenta",
           "status": "active",

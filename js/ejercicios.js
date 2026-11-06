@@ -5,6 +5,24 @@
 (() => {
   const h = (t, c, x, p) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; if (p) p.append(e); return e; };
   const strip = (s) => String(s).replace(/<[^>]+>/g, '').trim();
+
+  /* Validación de comandos. Linux distingue mayúsculas y minúsculas (ls -R no es ls -r), así que aquí también: solo se normalizan los espacios.
+     Cuando la respuesta falla, el mensaje dice por qué: mayúsculas, mismo comando con otras opciones, comando del curso que no toca, o comando inexistente. */
+  const norm = (s) => String(s).trim().replace(/\s+/g, ' ');
+  const primeros = (c) => norm(c).split(/ ?(?:\|\||\||&&|;) ?/).map((p) => { const w = p.split(' '); return w[0] === 'sudo' && w[1] ? w[1] : w[0]; }).filter(Boolean);
+  const conocidos = new Set(['sudo']); // primera palabra de cada comando del curso: separa «no existe» de «existe, pero no es lo que se pide»
+  const registrar = (U) => Object.values(U).forEach((un) => un.lessons.forEach((l) => l.exercises.forEach((ex) => {
+    [ex.command, ...(ex.steps || []).flatMap((s) => s.acceptedCommands || [s.command])].filter(Boolean).forEach((c) => primeros(c).forEach((w) => conocidos.add(w)));
+  })));
+  // Devuelve { ok } si coincide con algún comando aceptado; si no, { msg, cerca } (cerca = estaba a punto: conviene dejarle el texto para corregirlo).
+  const evaluar = (txt, aceptados) => {
+    const v = norm(txt), A = aceptados.map(norm), w = v.split(' ')[0];
+    if (A.includes(v)) return { ok: true };
+    if (A.some((a) => a.toLowerCase() === v.toLowerCase())) return { cerca: true, msg: 'Casi: Linux distingue mayúsculas de minúsculas y aquí cambian el significado. Revisa cómo lo escribiste.' };
+    if (A.some((a) => a.split(' ')[0] === w)) return { cerca: true, msg: `«${w}» es el comando correcto, pero revisa las opciones o los argumentos.` };
+    if (conocidos.has(w)) return { msg: `«${w}» existe, pero no es el comando que pide este objetivo.` };
+    return { msg: `${w}: comando no encontrado. Revisa que esté bien escrito.` };
+  };
   const mezclar = (a) => a.map((v) => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map((v) => v[1]);
   const main = document.getElementById('main');
   const ETQ = { concept: 'Entiende', 'type-command': 'Practica', 'autocomplete-command': 'Practica', 'multi-step-terminal': 'Practica',
@@ -16,10 +34,27 @@
     h('p', null, 'Abre el sitio con un servidor local: en la carpeta del proyecto ejecuta "python3 -m http.server" y entra en http://localhost:8000/practica.html', c);
   });
 
+  /* La identidad de una lección es su "id" (campo del JSON), no su posición: así se pueden insertar lecciones nuevas sin romper el progreso guardado ni los enlaces.
+     Las 30 originales conservan el id de siempre (u1l2…). Las nuevas llevan uno con nombre (p. ej. "tar-y-respaldos"): minúsculas, números y guiones, hasta 30 caracteres.
+     Nunca cambies el id de una lección ya publicada: es la clave del progreso de la gente. */
+  const ID_VALIDO = /^[a-z0-9-]{1,30}$/;
+  function indexar(U) {
+    const mapa = new Map();
+    Object.entries(U).forEach(([u, un]) => un.lessons.forEach((les, i) => {
+      if (!ID_VALIDO.test(les.id || '')) return console.error(`Lección sin id válido: unidad ${u}, posición ${i + 1} («${les.title}»). Añade "id" en el JSON.`);
+      if (mapa.has(les.id)) return console.error(`id repetido en el JSON: "${les.id}" (unidad ${u}, posición ${i + 1}).`);
+      mapa.set(les.id, { u, i, les });
+    }));
+    return mapa;
+  }
+
   function iniciar(d) {
-    const U = d.unitData, p = new URLSearchParams(location.search), u = p.get('u'), l = +p.get('l');
-    const les = U[u] && U[u].lessons[l];
-    if (les) leccion(U, u, l, les); else selector(U);
+    const U = d.unitData, p = new URLSearchParams(location.search), mapa = indexar(U);
+    registrar(U);
+    // Enlace nuevo: ?id=navegacion. Enlace antiguo (?u=1&l=2): se busca por el id de siempre (u1l2), no por la posición, así sigue apuntando a la misma lección.
+    const id = p.get('id') || (p.has('u') && p.has('l') ? `u${p.get('u')}l${p.get('l')}` : '');
+    const hit = mapa.get(id);
+    if (hit) leccion(U, hit.u, hit.i, hit.les); else selector(U);
   }
 
   function selector(U) {
@@ -33,8 +68,8 @@
       const grid = h('div', 'lecs', null, sec);
       un.lessons.forEach((les, i) => {
         const a = h('a', 'card', null, grid);
-        a.href = `?u=${id}&l=${i}`;
-        const nT = les.exercises.length, hT = Progreso.hechas(`u${id}l${i}`, nT);
+        a.href = `?id=${les.id}`;
+        const nT = les.exercises.length, hT = Progreso.hechas(les.id, nT);
         if (hT >= nT) a.classList.add('completa'); else if (hT) a.classList.add('en-curso');
         h('span', 'etq', hT >= nT ? 'Completada · ' + nT + ' tarjetas' : hT ? `${hT} de ${nT} tarjetas` : nT + ' tarjetas', a);
         h('h3', null, les.title, a);
@@ -44,7 +79,7 @@
   }
 
   function leccion(U, u, l, les) {
-    const n = les.exercises.length, id = `u${u}l${l}`, ya = Progreso.estan(id).filter((i) => i < n);
+    const n = les.exercises.length, id = les.id, ya = Progreso.estan(id).filter((i) => i < n);
     document.title = les.title + ' | LinuxPath';
     const hero = h('section', 'hero', null, main), w = h('div', 'wrap', null, hero);
     h('div', 'arte', null, hero).setAttribute('aria-hidden', 'true');
@@ -84,7 +119,7 @@
     h('h2', null, 'Lección completada', cd);
     h('p', null, 'Recorriste todas las tarjetas de ' + les.title + '.', cd);
     const sig = U[u].lessons[l + 1];
-    Object.assign(h('a', 'btn', sig ? 'Siguiente: ' + sig.title : 'Todas las lecciones', cd), { href: sig ? `?u=${u}&l=${l + 1}` : 'practica.html' });
+    Object.assign(h('a', 'btn', sig ? 'Siguiente: ' + sig.title : 'Todas las lecciones', cd), { href: sig ? `?id=${sig.id}` : 'practica.html' });
     document.body.append(Object.assign(document.createElement('script'), { src: 'js/tarjetas.js' }));
   }
 
@@ -292,8 +327,10 @@
         return;
       }
       if (e.key !== 'Enter') return;
-      const val = inp.value.trim().toLowerCase();
-      if (s.cmds.some((c) => c.toLowerCase() === val)) {
+      const val = norm(inp.value);
+      if (!val) return; // Enter con la línea vacía no cuenta como intento
+      const r = evaluar(val, s.cmds);
+      if (r.ok) {
         const lin = h('p', null, null, hist);
         h('span', 'ps', '$ ', lin);
         lin.append(inp.value.trim());
@@ -306,9 +343,9 @@
       } else {
         at++;
         out.className = 'out mal';
-        out.textContent = `${val}: comando no encontrado`;
+        out.textContent = r.msg;
         ay.textContent = 'Pista: ' + s.hint + (at >= 4 ? ` · empieza con "${s.c0[0]}"` : '');
-        inp.value = '';
+        if (!r.cerca) inp.value = ''; // si estaba a punto, se conserva lo escrito para que lo corrija en vez de reescribirlo entero
       }
     };
   }
