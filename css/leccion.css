@@ -1,0 +1,116 @@
+/* LinuxPath · lección "¿Qué es Linux?" — estilo Raycast: lienzo #040506, un solo acento coral,
+   tarjetas "tecla" (sombra interior, sin sombras exteriores), botones neutros Mist, rejilla de 8px. */
+:root {
+  color-scheme: dark;
+  --void: #040506; --ink: #07080a; --grf: #1b1c1e; --smoke: #6a6b6c; --ash: #9c9c9d;
+  --mist: #e6e6e6; --iron: #454647; --line: #363739; --white: #fff; --coral: #ff6363; --ember: #452324;
+  --inter: "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --sf: "SF Pro Text", system-ui, -apple-system, sans-serif;
+  --key: rgba(255,255,255,.05) 0 1px 0 0 inset, rgba(255,255,255,.25) 0 0 0 1px, rgba(0,0,0,.2) 0 -1px 0 0 inset;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; background: var(--void); color: var(--white); font: 400 1rem/1.6 var(--inter); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, p { margin: 0; font-weight: 400; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; border-radius: 8px; }
+.wrap { width: min(1200px, 100% - 48px); margin-inline: auto; }
+.salto { position: absolute; left: -999px; }
+.salto:focus { left: 16px; top: 16px; z-index: 10; background: var(--mist); color: var(--iron); padding: 8px 12px; border-radius: 8px; }
+
+/* Barra de navegación flotante de vidrio */
+.nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 5; width: min(960px, 100% - 32px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 16px;
+  border: 1px solid var(--line); border-radius: 8px; background: rgba(4,5,6,.6); -webkit-backdrop-filter: blur(48px); backdrop-filter: blur(48px); }
+.logo { display: inline-flex; align-items: center; gap: 8px; font: 500 13px/1.5 var(--inter); text-decoration: none; }
+.logo i { width: 12px; height: 12px; background: var(--coral); transform: rotate(45deg); border-radius: 2px; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--ash); font: 500 13px/1.5 var(--inter); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--white); }
+
+.btn { display: inline-block; padding: 8px 12px; border-radius: 8px; background: var(--mist); color: var(--iron); font: 500 14px/1.5 var(--inter);
+  text-decoration: none; box-shadow: rgba(0,0,0,.03) 0 7px 3px 0, rgba(0,0,0,.25) 0 4px 4px 0; transition: background .15s; }
+.btn:hover { background: var(--white); }
+.btn.fantasma { background: transparent; color: var(--mist); border: 1px solid var(--line); box-shadow: none; }
+.btn.fantasma:hover { border-color: var(--ash); }
+
+/* Hero con atmósfera roja y azul */
+.hero { position: relative; isolation: isolate; overflow: hidden; text-align: center; padding: 176px 0 96px; }
+.arte { position: absolute; inset: 0; z-index: -1; pointer-events: none; -webkit-mask-image: linear-gradient(#000 40%, transparent); mask-image: linear-gradient(#000 40%, transparent); }
+.arte::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 26%, rgba(4,63,150,.7), rgba(6,18,37,.25) 60%, transparent 80%); }
+.arte::after { content: ""; position: absolute; left: 50%; top: 10%; width: 560px; height: 224px; margin-left: -280px; opacity: .7;
+  background: linear-gradient(100deg, transparent 20%, var(--coral) 45%, transparent 70%); filter: blur(40px); transform: rotate(-18deg); }
+.eyebrow { font: 500 11px/1 var(--inter); letter-spacing: .8px; text-transform: uppercase; color: var(--ash); }
+.hero h1 { margin: 16px auto; max-width: 14em; font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1.17; letter-spacing: .22px; }
+.hero .lead { margin: 0 auto 24px; max-width: 480px; color: var(--ash); }
+.acciones { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.meta { margin-top: 24px; font: 400 12px/1.5 var(--mono); letter-spacing: .017em; color: var(--ash); }
+.meta span { color: var(--smoke); margin-inline: 8px; }
+
+/* Secciones y tarjetas */
+.sec { padding: 80px 0; border-top: 1px solid var(--grf); }
+.sec h2 { margin-top: 16px; font-size: 2rem; line-height: 1.15; max-width: 20em; }
+.sec .lead { margin-top: 16px; max-width: 560px; color: var(--ash); }
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.card { background: var(--ink); border-radius: 16px; padding: 24px; box-shadow: var(--key); }
+.card h3 { font: 500 20px/1.2 var(--inter); letter-spacing: .2px; margin-bottom: 8px; }
+.card p { color: var(--ash); }
+.etq { display: block; margin-bottom: 8px; font: 400 10px/1.5 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ash); }
+.capas { display: grid; gap: 8px; }
+.capa.so { background: var(--ember); }
+.capa.so p { color: var(--mist); }
+.tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.icono { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 24px; border-radius: 99999px; background: var(--grf); color: var(--mist); font: 500 24px/1 var(--sf); }
+.dato { margin-top: 40px; display: flex; align-items: baseline; gap: 16px; color: var(--ash); }
+.dato b { font: 500 32px/1.15 var(--sf); color: var(--white); }
+
+/* Comparación Windows / Linux */
+.tabla-caja { margin-top: 40px; padding: 8px; overflow-x: auto; }
+table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; }
+th, td { padding: 16px; vertical-align: top; border-bottom: 1px solid var(--grf); }
+tbody tr:last-child > * { border-bottom: 0; }
+thead th { font: 500 14px/1.5 var(--inter); color: var(--white); }
+tbody th { width: 160px; font: 400 12px/1.5 var(--mono); letter-spacing: .017em; text-transform: uppercase; color: var(--ash); }
+td { color: var(--mist); font-size: .9375rem; }
+code { font: 400 12px/1.5 var(--mono); padding: 0 6px; border-radius: 6px; background: var(--grf); color: var(--white); }
+
+.cierre { text-align: center; }
+.cierre .card { max-width: 720px; margin-inline: auto; padding: 40px 24px; background: var(--ember); }
+.cierre h2 { margin: 0 auto 16px; }
+.cierre p { color: var(--mist); margin-bottom: 24px; }
+.pie { padding: 40px 0 56px; text-align: center; }
+
+@media (max-width: 860px) {
+  .dos, .tres { grid-template-columns: 1fr; gap: 24px; }
+  .nav-links { display: none; }
+  .hero { padding-top: 144px; }
+  .sec { padding: 64px 0; }
+}
+/* Iconos: trazo fino en gris claro dentro de contenedores circulares */
+.icono svg, .btn svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.icono { transition: background .2s; }
+.icono svg { width: 24px; height: 24px; stroke-width: 1.75; transition: transform .25s; }
+.card:hover .icono { background: #2a2b2e; }
+.card:hover .icono svg { transform: scale(1.1) rotate(-4deg); }
+.btn svg { width: 16px; height: 16px; margin-left: 4px; vertical-align: -3px; stroke-width: 2; transition: transform .2s; }
+.btn:hover svg { transform: translateX(3px); }
+
+/* Animaciones */
+.btn { transition: background .15s, transform .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); }
+.nav { transition: background .3s, border-color .3s; }
+.nav.scrolled { background: rgba(4,5,6,.85); border-color: var(--iron); }
+.arte::before { animation: latido 8s ease-in-out infinite alternate; }
+.arte::after { animation: deriva 14s ease-in-out infinite alternate; }
+@keyframes latido { from { opacity: .7; } to { opacity: 1; } }
+@keyframes deriva { from { transform: translate(-48px, 0) rotate(-18deg); } to { transform: translate(48px, 24px) rotate(-12deg); } }
+.revela { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; transition-delay: calc(var(--i, 0) * 80ms); }
+.revela.visto { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+  .btn:hover, .btn:hover svg, .card:hover .icono svg { transform: none; }
+}

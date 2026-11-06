@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Qué es Linux? | LinuxPath</title>
+  <meta name="description" content="Qué es un sistema operativo, qué es Linux y en qué se diferencia de Windows, explicado con tarjetas.">
+  <meta name="theme-color" content="#040506">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/leccion.css">
+  <link rel="stylesheet" href="css/tarjetas.css">
+  <link rel="stylesheet" href="css/progreso.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  </svg>
+  <a class="salto" href="#recorrido">Saltar al contenido</a>
+
+  <header class="nav">
+    <a class="logo" href="index.html"><i aria-hidden="true"></i>LinuxPath</a>
+    <nav class="nav-links" aria-label="En esta lección">
+      <a href="#recorrido">Tarjetas</a>
+      <a href="#cierre">Resumen</a>
+    </nav>
+    <a class="btn" href="index.html#ruta">Volver a la ruta</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="arte" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Unidad 1 · Lección 1</p>
+        <h1>Linux es un sistema operativo.</h1>
+        <p class="lead">Baja por la página y las tarjetas irán pasando una a una: qué es un sistema operativo, qué es Linux y en qué se diferencia de Windows.</p>
+        <div class="acciones"><a class="btn" href="#recorrido">Empezar la lección</a></div>
+        <p class="meta">7 tarjetas<span>|</span>Sin comandos<span>|</span>Unos 5 minutos</p>
+      </div>
+    </section>
+
+    <section class="recorrido" id="recorrido" data-leccion="que-es-linux" style="--n:7" aria-label="Tarjetas de la lección">
+      <div class="escena">
+        <div class="pila">
+
+          <article class="card tarjeta">
+            <header><span class="etq">1 de 7 · Entiende</span><h3>El sistema operativo es el intermediario</h3>
+              <p>Tus programas no hablan con el equipo directamente: le piden todo al sistema operativo, que reparte la memoria, el disco y el procesador.</p></header>
+            <div class="grafico" role="img" aria-label="Un pedido baja desde los programas, pasa por el sistema operativo y llega al hardware">
+              <div class="capas-g"><i class="pulso"></i>
+                <div class="cap" style="--i:0">Tus programas</div>
+                <div class="cap so" style="--i:1">Sistema operativo</div>
+                <div class="cap" style="--i:2">Hardware</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card tarjeta">
+            <header><span class="etq">2 de 7 · Entiende</span><h3>Linux es el núcleo, y también lo que lo rodea</h3>
+              <p>Estrictamente, Linux es el núcleo (kernel). Con herramientas alrededor forma una distribución completa, lista para instalar.</p></header>
+            <div class="grafico" role="img" aria-label="Tres capas anidadas: distribución, herramientas y núcleo">
+              <div class="anidado" style="--i:0"><span class="etq">Distribución</span>
+                <div class="anidado" style="--i:1"><span class="etq">Herramientas: terminal y programas básicos</span>
+                  <div class="anidado nuc" style="--i:2"><span class="etq">Núcleo · Linux</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card tarjeta">
+            <header><span class="etq">3 de 7 · Entiende</span><h3>Software libre: el código está abierto</h3>
+              <p>En Linux puedes leer, modificar y compartir el código, y casi todas las distribuciones son gratis. En Windows el código es cerrado y lo controla Microsoft.</p></header>
+            <div class="grafico">
+              <div class="cols">
+                <div class="col"><span class="etq">Windows · cerrado</span>
+                  <div class="doc cerrado"><i style="--w:80%;--i:0"></i><i style="--w:60%;--i:1"></i><i style="--w:90%;--i:2"></i><i style="--w:50%;--i:3"></i><span class="cand" aria-hidden="true"><svg><use href="#i-lock"/></svg></span></div></div>
+                <div class="col"><span class="etq">Linux · abierto</span>
+                  <div class="doc"><i style="--w:80%;--i:0"></i><i style="--w:60%;--i:1"></i><i style="--w:90%;--i:2"></i><i style="--w:50%;--i:3"></i></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card tarjeta">
+            <header><span class="etq">4 de 7 · Entiende</span><h3>Muchas distribuciones, un mismo núcleo</h3>
+              <p>Cada distribución elige sus propias herramientas y su escritorio, pero todas se apoyan en Linux.</p></header>
+            <div class="grafico">
+              <div class="chips">
+                <div class="chip" style="--i:0"><b>U</b><span>Ubuntu<small>Buena para empezar</small></span></div>
+                <div class="chip" style="--i:1"><b>D</b><span>Debian<small>Muy estable</small></span></div>
+                <div class="chip" style="--i:2"><b>F</b><span>Fedora<small>Software reciente</small></span></div>
+                <div class="chip" style="--i:3"><b>M</b><span>Linux Mint<small>Escritorio parecido a Windows</small></span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card tarjeta">
+            <header><span class="etq">5 de 7 · Entiende</span><h3>Los archivos viven en un solo árbol</h3>
+              <p>Windows reparte el disco en unidades con letra. Linux parte de una única raíz, <code>/</code>, y todo cuelga de ella.</p></header>
+            <div class="grafico">
+              <div class="cols">
+                <div class="col"><span class="etq">Windows</span><div class="arbol"><span style="--i:0">C:\</span><span style="--i:1">├ Usuarios\</span><span style="--i:2">│ └ ana\</span><span style="--i:3">D:\</span></div></div>
+                <div class="col"><span class="etq">Linux</span><div class="arbol"><span style="--i:0">/</span><span style="--i:1">├ home/</span><span style="--i:2">│ └ ana/</span><span style="--i:3">├ etc/</span><span style="--i:4">└ usr/</span></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card tarjeta">
+            <header><span class="etq">6 de 7 · Entiende</span><h3>Linux distingue mayúsculas y minúsculas</h3>
+              <p>Esto importa en la terminal: un nombre escrito con otra mayúscula es otro archivo.</p></header>
+            <div class="grafico">
+              <div class="cols">
+                <div class="col"><span class="etq">Windows</span><div class="par"><code>Foto.png</code><span class="simb">=</span><code>foto.png</code></div><p class="nota-g">Es el mismo nombre.</p></div>
+                <div class="col"><span class="etq">Linux</span><div class="par"><code>Foto.png</code><span class="simb">≠</span><code>foto.png</code></div><p class="nota-g">Son dos archivos distintos.</p></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card tarjeta">
+            <header><span class="etq">7 de 7 · Entiende</span><h3>Instalar programas: instalador o gestor de paquetes</h3>
+              <p>En Windows sueles descargar un instalador. En Linux, un gestor de paquetes descarga e instala el programa por ti.</p></header>
+            <div class="grafico">
+              <div class="cols">
+                <div class="col"><span class="etq">Windows</span><div class="pasos-w"><span style="--i:0">Descargar el instalador</span><span style="--i:1">Pulsar «Siguiente»</span><span style="--i:2">Instalar</span></div></div>
+                <div class="col"><span class="etq">Linux (Debian y Ubuntu)</span><p class="tl"><span aria-hidden="true">$ </span><span class="tipea">sudo apt install htop</span></p></div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <p class="contador" aria-hidden="true"><span><b class="paso">1</b> / 7</span><span class="carril"><span class="barra" style="transform:scaleX(.143)"></span></span></p>
+      </div>
+    </section>
+
+    <section class="sec cierre" id="cierre">
+      <div class="wrap">
+        <div class="card">
+          <h2>Ninguno es mejor en todo.</h2>
+          <p>Depende de lo que necesites. Como Linux se maneja mucho desde la terminal, en la siguiente lección darás tus primeros pasos en ella.</p>
+          <a class="btn" href="index.html#ruta">Volver a la ruta</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="meta">LinuxPath<span>|</span>Unidad 1<span>|</span>¿Qué es Linux?</p>
+  </footer>
+  <script src="js/animaciones.js"></script>
+  <script src="js/progreso.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/tarjetas.js"></script>
+</body>
+</html>

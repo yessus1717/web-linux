@@ -1,0 +1,23 @@
+/* LinuxPath · progreso y cuenta: panel de la portada, avance en las lecciones, marca de tarjeta hecha y acceso a la cuenta en la barra. Lo pintan js/progreso.js y js/sesion.js. */
+.mi-progreso { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; max-width: 640px; margin: 24px 0 0; padding: 16px 20px;
+  border: 1px solid var(--line, #26282c); border-radius: 12px; background: #0b0c0e; }
+.mi-progreso p { margin: 0; }
+.mp-datos { flex: 1 1 240px; }
+.mp-t { font: 500 16px/1.4 var(--inter, system-ui, sans-serif); color: var(--white, #fff); }
+.mp-s { font: 400 13px/1.5 var(--mono, monospace); color: var(--ash, #8a8f98); }
+.mp-carril { display: block; height: 4px; margin-top: 12px; overflow: hidden; border-radius: 2px; background: var(--grf, #1c1d20); }
+.mp-carril i { display: block; height: 100%; background: #52feca; transition: width .4s; }
+.mp-acc { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+a.completa, a.en-curso { outline: 1px solid rgba(82, 254, 202, .45); outline-offset: -1px; }
+a.en-curso { outline-color: rgba(82, 254, 202, .2); }
+a.completa .n, a.en-curso .n, a.completa .etq, a.en-curso .etq { color: #52feca; }
+.lec-barra { display: block; height: 3px; margin-top: 12px; overflow: hidden; border-radius: 2px; background: var(--grf, #1c1d20); }
+.lec-barra b { display: block; height: 100%; background: #52feca; }
+
+.tarjeta.hecha header .etq::after { content: ' · ✓ hecha'; color: #52feca; }
+
+.nav-cuenta { display: flex; align-items: center; gap: 12px; font: 500 13px/1.5 var(--inter, system-ui, sans-serif); }
+.nav-entrar, .nav-salir { padding: 0; border: 0; background: none; color: var(--ash, #9c9c9d); font: inherit; text-decoration: none; cursor: pointer; transition: color .15s; }
+.nav-entrar:hover, .nav-salir:hover { color: var(--white, #fff); }
+.nav-user { max-width: 12ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--mist, #e6e6e6); }

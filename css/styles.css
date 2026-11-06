@@ -1,0 +1,53 @@
+/* LinuxPath · página principal — estilo Raycast.
+   Se carga después de leccion.css, que aporta la base (tokens, navegación, hero, botones, tarjetas). */
+
+/* Terminal: ventana de producto con la sombra "de tecla". La animación la controla js/terminal.js */
+.ventana { max-width: 720px; margin: 56px auto 0; text-align: left; overflow: hidden; background: var(--ink); border-radius: 16px;
+  box-shadow: var(--key); font: 400 14px/1.75 var(--mono); color: var(--mist); }
+.t-barra { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 24px; border-bottom: 1px solid var(--grf); }
+.t-titulo { font-size: 12px; color: var(--ash); }
+.t-cuerpo { padding: 16px 24px 32px; min-height: 304px; }
+.t-meta { color: var(--ash); margin-bottom: 8px; }
+.ps { color: var(--ash); }
+.t-ok { margin-top: 12px; color: var(--white); line-height: 1.6; }
+.t-pausa { padding: 0 12px; border: 0; border-radius: 8px; cursor: pointer; background: rgba(255,255,255,.05); color: var(--mist); font: 400 12px/24px var(--mono); transition: background .15s; }
+.t-pausa:hover { background: rgba(255,255,255,.1); }
+.t-pausa[aria-pressed="true"] { background: var(--mist); color: var(--iron); }
+.cursor { display: inline-block; width: .55em; height: 1.05em; vertical-align: text-bottom; background: var(--mist); animation: parpadeo 1.1s step-end infinite; }
+.terminal[data-pausa] .cursor { animation: none; }
+@keyframes parpadeo { 50% { opacity: 0; } }
+
+/* Cómo se aprende */
+.pasos { list-style: none; padding: 0; margin-bottom: 0; }
+.nota { margin-top: 24px; max-width: 560px; color: var(--ash); font-size: 14px; }
+
+/* Lecciones: una sección por unidad y cada lección es una caja que enlaza a su página.
+   La primera, con el tinte cálido, es el punto de partida; los desafíos finales llevan la etiqueta en coral. */
+.ruta { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 56px; }
+.u-cab { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.u-cab .icono { width: 40px; height: 40px; margin: 0; flex: none; }
+.u-cab .icono svg { width: 20px; height: 20px; }
+.u-cab .etq { margin: 0 0 4px; }
+.u-cab h3 { font: 500 24px/1.2 var(--inter); }
+.u-cnt { margin-left: auto; font: 400 12px/1.5 var(--mono); color: var(--smoke); }
+.lecs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.lec { display: flex; flex-direction: column; height: 100%; min-height: 176px; text-decoration: none; transition: background .15s, transform .25s; }
+.lec:hover { background: #111214; transform: translateY(-4px); }
+.lec .etq { display: flex; align-items: center; }
+.lec h4 { margin: 0 0 8px; font: 500 18px/1.3 var(--inter); letter-spacing: .2px; }
+.lec p { font-size: 14px; }
+.lec .n { margin-top: auto; padding-top: 24px; font: 400 12px/1.5 var(--mono); letter-spacing: .017em; color: var(--smoke); }
+.lec.inicio { background: var(--ember); }
+.lec.inicio:hover { background: #502a2b; }
+.lec.inicio p { color: var(--mist); }
+.lec.final .etq { color: var(--coral); }
+.insignia { display: inline-block; margin-left: 8px; padding: 0 6px; border-radius: 6px; background: var(--grf); color: var(--white); font: 500 12px/1.5 var(--inter); letter-spacing: 0; text-transform: none; }
+
+@media (max-width: 860px) { .lecs { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) {
+  .lecs { grid-template-columns: 1fr; }
+  .lec { min-height: 0; }
+  .u-cnt { display: none; }
+  .t-cuerpo { font-size: 12px; padding: 8px 16px 24px; min-height: 352px; }
+}
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }

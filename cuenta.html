@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tu cuenta | LinuxPath</title>
+  <meta name="description" content="Crea tu cuenta o entra en LinuxPath para guardar tu progreso y retomarlo desde cualquier dispositivo.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#040506">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/leccion.css">
+  <link rel="stylesheet" href="css/progreso.css">
+  <link rel="stylesheet" href="css/cuenta.css">
+</head>
+<body>
+  <a class="salto" href="#formulario">Saltar al formulario</a>
+  <header class="nav">
+    <a class="logo" href="index.html"><i aria-hidden="true"></i>LinuxPath</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html#ruta">Lecciones</a>
+      <a href="terminal.html">Terminal</a>
+    </nav>
+    <a class="btn" href="index.html#ruta">Ver lecciones</a>
+  </header>
+
+  <main class="cuenta">
+    <div class="wrap">
+      <p class="eyebrow">Tu cuenta</p>
+      <h1 id="titulo">Entra para guardar tu progreso</h1>
+      <p class="lead">Con una cuenta tu avance se guarda en el servidor y lo retomas desde cualquier dispositivo.</p>
+
+      <div class="card caja-cuenta" id="formulario">
+        <div class="pestanas" role="tablist" aria-label="Entrar o crear cuenta">
+          <button type="button" role="tab" id="tab-entrar" aria-controls="form-entrar" aria-selected="true">Entrar</button>
+          <button type="button" role="tab" id="tab-registro" aria-controls="form-registro" aria-selected="false">Crear cuenta</button>
+        </div>
+
+        <p class="aviso" id="aviso" role="alert" hidden></p>
+
+        <form id="form-entrar" role="tabpanel" aria-labelledby="tab-entrar" novalidate>
+          <label>Correo
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label>Contraseña
+            <input name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="btn" type="submit">Entrar</button>
+        </form>
+
+        <form id="form-registro" role="tabpanel" aria-labelledby="tab-registro" novalidate hidden>
+          <label>Nombre de usuario
+            <input name="nombre" type="text" autocomplete="username" maxlength="24" required>
+            <small>De 3 a 24 caracteres: letras, números o _</small>
+          </label>
+          <label>Correo
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label>Contraseña
+            <input name="password" type="password" autocomplete="new-password" maxlength="128" required>
+            <small>Mínimo 8 caracteres.</small>
+          </label>
+          <label>Repite la contraseña
+            <input name="repetir" type="password" autocomplete="new-password" maxlength="128" required>
+          </label>
+          <button class="btn" type="submit">Crear cuenta</button>
+        </form>
+      </div>
+      <p class="nota-cuenta">El progreso que ya tienes en este navegador se unirá a tu cuenta.</p>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p class="meta">LinuxPath<span>|</span>Cuenta</p>
+  </footer>
+  <script src="js/progreso.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/cuenta.js"></script>
+</body>
+</html>

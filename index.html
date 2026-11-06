@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinuxPath | Aprende Linux paso a paso</title>
+  <meta name="description" content="Lecciones cortas para aprender Linux practicando comandos en una terminal segura, con explicaciones claras y progreso a tu ritmo.">
+  <meta name="theme-color" content="#040506">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/leccion.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/progreso.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 10 3 2-3 2M13 15h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+  </svg>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header class="nav">
+    <a class="logo" href="#" aria-label="LinuxPath, inicio"><i aria-hidden="true"></i>LinuxPath</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#metodo">Cómo se aprende</a>
+      <a href="#ruta">Lecciones</a>
+      <a href="terminal.html">Terminal</a>
+    </nav>
+    <a class="btn" href="que-es-linux.html">Empezar<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </header>
+
+  <main id="contenido">
+    <section class="hero">
+      <div class="arte" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Aprende Linux practicando</p>
+        <h1>Aprende Linux practicando en una terminal, paso a paso.</h1>
+        <p class="lead">Lecciones cortas que explican qué hace cada comando y por qué existe. Lo pruebas en una terminal segura y te decimos por qué funcionó o no.</p>
+        <div class="acciones">
+          <a class="btn" href="#ruta">Ver las lecciones<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn fantasma" href="#metodo">Cómo funciona</a>
+          <a class="btn fantasma" href="terminal.html">Probar la terminal</a>
+        </div>
+        <p class="meta">5 unidades<span>|</span>30 lecciones<span>|</span>Terminal segura<span>|</span>A tu ritmo</p>
+
+        <figure class="ventana terminal" id="terminal" aria-label="Ejemplo de lecciones: cada una propone un objetivo y se resuelve con comandos">
+          <div class="t-barra">
+            <span class="t-titulo" id="terminal-titulo">~/linuxpath/archivos</span>
+            <button class="t-pausa" id="terminal-pausa" type="button" aria-pressed="false" hidden>Pausar</button>
+          </div>
+          <div class="t-cuerpo" id="terminal-demo">
+            <p class="t-meta">Objetivo: crea la carpeta proyectos y entra en ella.</p>
+            <p><span class="ps">$</span> mkdir proyectos</p>
+            <p><span class="ps">$</span> cd proyectos</p>
+            <p><span class="ps">$</span> pwd</p>
+            <p>/home/ana/proyectos</p>
+            <p class="t-ok">Correcto. mkdir crea la carpeta, cd te mueve dentro y pwd confirma dónde estás.</p>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec" id="metodo">
+      <div class="wrap">
+        <p class="eyebrow">Cómo se aprende</p>
+        <h2>Entender cada comando importa más que memorizarlo.</h2>
+        <ol class="tres pasos">
+          <li class="card"><div class="icono" aria-hidden="true"><svg><use href="#i-bulb"/></svg></div><h3>Entiende</h3><p>Cada lección empieza explicando qué hace un comando y para qué sirve, antes de pedirte que lo escribas.</p></li>
+          <li class="card"><div class="icono" aria-hidden="true"><svg><use href="#i-term"/></svg></div><h3>Practica</h3><p>Escribes el comando tú mismo en una terminal simulada. Nada de lo que hagas toca tu sistema real.</p></li>
+          <li class="card"><div class="icono" aria-hidden="true"><svg><use href="#i-check"/></svg></div><h3>Comprueba</h3><p>Ves qué salió bien o mal y por qué, para corregir con criterio en lugar de probar a ciegas.</p></li>
+        </ol>
+        <p class="nota">Las rachas y los puntos de progreso te ayudan a ser constante, pero lo que cuenta es la práctica y entender lo que haces.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="ruta">
+      <div class="wrap">
+        <p class="eyebrow">Lecciones</p>
+        <h2>Cinco unidades, de qué es Linux a la red.</h2>
+        <p class="lead">Elige una lección para empezar. Cada unidad se apoya en la anterior, pero puedes saltar a la que necesites.</p>
+        <ol class="ruta">
+
+          <li class="unidad">
+            <header class="u-cab"><div class="icono" aria-hidden="true"><svg><use href="#i-info"/></svg></div><div><span class="etq">Unidad 1</span><h3>Fundamentos</h3></div><span class="u-cnt">6 lecciones</span></header>
+            <ul class="lecs">
+              <li><a class="card lec inicio" href="que-es-linux.html"><span class="etq">Lección 1<span class="insignia">Empieza aquí</span></span><h4>¿Qué es Linux?</h4><p>Conceptos básicos</p><span class="n">7 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=1&amp;l=1"><span class="etq">Lección 2</span><h4>La terminal</h4><p>Tu herramienta principal</p><span class="n">24 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=1&amp;l=2"><span class="etq">Lección 3</span><h4>Navegación</h4><p>pwd, ls, cd</p><span class="n">17 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=1&amp;l=3"><span class="etq">Lección 4</span><h4>Archivos</h4><p>Crear y organizar</p><span class="n">19 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=1&amp;l=4"><span class="etq">Lección 5</span><h4>Repaso</h4><p>Pon todo en práctica</p><span class="n">20 tarjetas</span></a></li>
+              <li><a class="card lec final" href="practica.html?u=1&amp;l=5"><span class="etq">Desafío final</span><h4>Resuélvelo por tu cuenta</h4><p>Sin ayudas: todo lo de la unidad.</p><span class="n">4 tarjetas</span></a></li>
+            </ul>
+          </li>
+
+          <li class="unidad">
+            <header class="u-cab"><div class="icono" aria-hidden="true"><svg><use href="#i-term"/></svg></div><div><span class="etq">Unidad 2</span><h3>Terminal</h3></div><span class="u-cnt">6 lecciones</span></header>
+            <ul class="lecs">
+              <li><a class="card lec" href="practica.html?u=2&amp;l=0"><span class="etq">Lección 1</span><h4>Comandos encadenados</h4><p>Pipes y redirecciones (|, &gt;, &gt;&gt;)</p><span class="n">22 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=2&amp;l=1"><span class="etq">Lección 2</span><h4>Buscar archivos</h4><p>find y locate</p><span class="n">20 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=2&amp;l=2"><span class="etq">Lección 3</span><h4>Buscar texto</h4><p>grep y expresiones básicas</p><span class="n">23 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=2&amp;l=3"><span class="etq">Lección 4</span><h4>Historial y atajos</h4><p>history, Ctrl+R, autocompletado</p><span class="n">28 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=2&amp;l=4"><span class="etq">Lección 5</span><h4>Repaso</h4><p>Pon todo en práctica</p><span class="n">20 tarjetas</span></a></li>
+              <li><a class="card lec final" href="practica.html?u=2&amp;l=5"><span class="etq">Desafío final</span><h4>Resuélvelo por tu cuenta</h4><p>Sin ayudas: todo lo de la unidad.</p><span class="n">4 tarjetas</span></a></li>
+            </ul>
+          </li>
+
+          <li class="unidad">
+            <header class="u-cab"><div class="icono" aria-hidden="true"><svg><use href="#i-lock"/></svg></div><div><span class="etq">Unidad 3</span><h3>Archivos y permisos</h3></div><span class="u-cnt">6 lecciones</span></header>
+            <ul class="lecs">
+              <li><a class="card lec" href="practica.html?u=3&amp;l=0"><span class="etq">Lección 1</span><h4>Propietarios y grupos</h4><p>Usuario, grupo, otros</p><span class="n">13 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=3&amp;l=1"><span class="etq">Lección 2</span><h4>Permisos rwx</h4><p>Lectura, escritura, ejecución</p><span class="n">21 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=3&amp;l=2"><span class="etq">Lección 3</span><h4>chmod</h4><p>Notación numérica y simbólica</p><span class="n">21 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=3&amp;l=3"><span class="etq">Lección 4</span><h4>chown y chgrp</h4><p>Cambiar propietario y grupo</p><span class="n">20 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=3&amp;l=4"><span class="etq">Lección 5</span><h4>Repaso</h4><p>Pon todo en práctica</p><span class="n">20 tarjetas</span></a></li>
+              <li><a class="card lec final" href="practica.html?u=3&amp;l=5"><span class="etq">Desafío final</span><h4>Resuélvelo por tu cuenta</h4><p>Sin ayudas: todo lo de la unidad.</p><span class="n">2 tarjetas</span></a></li>
+            </ul>
+          </li>
+
+          <li class="unidad">
+            <header class="u-cab"><div class="icono" aria-hidden="true"><svg><use href="#i-pulse"/></svg></div><div><span class="etq">Unidad 4</span><h3>Procesos</h3></div><span class="u-cnt">6 lecciones</span></header>
+            <ul class="lecs">
+              <li><a class="card lec" href="practica.html?u=4&amp;l=0"><span class="etq">Lección 1</span><h4>¿Qué es un proceso?</h4><p>PID, procesos padre e hijo</p><span class="n">17 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=4&amp;l=1"><span class="etq">Lección 2</span><h4>Ver procesos</h4><p>ps y top</p><span class="n">20 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=4&amp;l=2"><span class="etq">Lección 3</span><h4>Segundo plano</h4><p>&amp;, jobs, fg, bg</p><span class="n">13 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=4&amp;l=3"><span class="etq">Lección 4</span><h4>Terminar procesos</h4><p>kill y las señales comunes</p><span class="n">12 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=4&amp;l=4"><span class="etq">Lección 5</span><h4>Repaso</h4><p>Pon todo en práctica</p><span class="n">17 tarjetas</span></a></li>
+              <li><a class="card lec final" href="practica.html?u=4&amp;l=5"><span class="etq">Desafío final</span><h4>Resuélvelo por tu cuenta</h4><p>Sin ayudas: todo lo de la unidad.</p><span class="n">2 tarjetas</span></a></li>
+            </ul>
+          </li>
+
+          <li class="unidad">
+            <header class="u-cab"><div class="icono" aria-hidden="true"><svg><use href="#i-globe"/></svg></div><div><span class="etq">Unidad 5</span><h3>Redes</h3></div><span class="u-cnt">6 lecciones</span></header>
+            <ul class="lecs">
+              <li><a class="card lec" href="practica.html?u=5&amp;l=0"><span class="etq">Lección 1</span><h4>Conceptos de red</h4><p>IP, puertos, DNS básico</p><span class="n">17 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=5&amp;l=1"><span class="etq">Lección 2</span><h4>ping y traceroute</h4><p>Probar conectividad</p><span class="n">11 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=5&amp;l=2"><span class="etq">Lección 3</span><h4>curl y wget</h4><p>Peticiones desde la terminal</p><span class="n">9 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=5&amp;l=3"><span class="etq">Lección 4</span><h4>ssh básico</h4><p>Conectarte a otra máquina</p><span class="n">17 tarjetas</span></a></li>
+              <li><a class="card lec" href="practica.html?u=5&amp;l=4"><span class="etq">Lección 5</span><h4>Repaso</h4><p>Pon todo en práctica</p><span class="n">17 tarjetas</span></a></li>
+              <li><a class="card lec final" href="practica.html?u=5&amp;l=5"><span class="etq">Desafío final</span><h4>Resuélvelo por tu cuenta</h4><p>Sin ayudas: todo lo de la unidad.</p><span class="n">2 tarjetas</span></a></li>
+            </ul>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="meta">LinuxPath<span>|</span>Aprende Linux paso a paso</p>
+  </footer>
+  <script src="js/progreso.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/terminal.js" defer></script>
+  <script src="js/animaciones.js"></script>
+</body>
+</html>

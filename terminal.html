@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terminal de práctica | LinuxPath</title>
+  <meta name="description" content="Una terminal de Linux simulada donde puedes escribir comandos reales (ls, cd, grep, chmod, pipes y más) sin riesgo para tu equipo.">
+  <meta name="theme-color" content="#040506">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/leccion.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="css/progreso.css">
+</head>
+<body>
+  <a class="salto" href="#lab">Saltar a la terminal</a>
+
+  <header class="nav">
+    <a class="logo" href="index.html"><i aria-hidden="true"></i>LinuxPath</a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="index.html#ruta">Lecciones</a>
+      <a href="terminal.html" aria-current="page">Terminal</a>
+    </nav>
+    <a class="btn" href="index.html#ruta">Todas las lecciones</a>
+  </header>
+
+  <main>
+    <section class="hero corto">
+      <div class="arte" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="eyebrow">Laboratorio</p>
+        <h1>Una terminal de práctica, sin riesgos.</h1>
+        <p class="lead">Escribe comandos reales de Linux sobre un sistema de archivos simulado. Puedes crear, mover y borrar: si algo sale mal, pulsa Reiniciar y todo vuelve a su sitio.</p>
+        <p class="meta">Comandos reales<span>|</span>Nada toca tu equipo<span>|</span>Escribe help para empezar</p>
+      </div>
+    </section>
+
+    <section class="lab" id="lab" aria-label="Terminal de práctica">
+      <div class="wrap lab-grid">
+        <figure class="sh-ventana">
+          <div class="sh-barra">
+            <span class="sh-titulo" id="sh-titulo">ana@linuxpath: ~</span>
+            <button class="sh-btn" id="sh-reiniciar" type="button">Reiniciar</button>
+          </div>
+          <div class="sh-cuerpo" id="sh-cuerpo">
+            <div id="sh-salida" role="log" aria-label="Salida de la terminal"></div>
+            <div class="sh-linea">
+              <span class="sh-prompt" id="sh-prompt" aria-hidden="true"></span>
+              <input id="sh-entrada" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Escribe un comando y pulsa Enter">
+            </div>
+          </div>
+        </figure>
+
+        <aside class="lab-lado" aria-label="Ayudas">
+          <div class="card">
+            <span class="etq">Prueba esto</span>
+            <div class="chips-cmd">
+              <button class="chip-cmd" type="button" data-cmd="ls -la">ls -la</button>
+              <button class="chip-cmd" type="button" data-cmd="tree">tree</button>
+              <button class="chip-cmd" type="button" data-cmd="cd documentos &amp;&amp; ls">cd documentos &amp;&amp; ls</button>
+              <button class="chip-cmd" type="button" data-cmd="mkdir -p proyectos/nuevo">mkdir -p proyectos/nuevo</button>
+              <button class="chip-cmd" type="button" data-cmd='echo "hola" &gt; saludo.txt'>echo "hola" &gt; saludo.txt</button>
+              <button class="chip-cmd" type="button" data-cmd="grep -n error servidor.log">grep -n error servidor.log</button>
+              <button class="chip-cmd" type="button" data-cmd="cat servidor.log | grep error | wc -l">cat servidor.log | grep error | wc -l</button>
+              <button class="chip-cmd" type="button" data-cmd='find . -name "*.txt"'>find . -name "*.txt"</button>
+              <button class="chip-cmd" type="button" data-cmd="./backup.sh">./backup.sh</button>
+              <button class="chip-cmd" type="button" data-cmd="chmod +x backup.sh">chmod +x backup.sh</button>
+              <button class="chip-cmd" type="button" data-cmd="cat privado.txt">cat privado.txt</button>
+              <button class="chip-cmd" type="button" data-cmd="sudo chown ana privado.txt">sudo chown ana privado.txt</button>
+              <button class="chip-cmd" type="button" data-cmd="ps aux">ps aux</button>
+              <button class="chip-cmd" type="button" data-cmd="man grep">man grep</button>
+            </div>
+            <p class="nota-fs">Pulsa un ejemplo para escribirlo en la terminal y Enter para ejecutarlo. Tab completa nombres y ↑ ↓ recorren el historial.</p>
+          </div>
+          <div class="card">
+            <span class="etq">Tu sistema de archivos</span>
+            <div class="arbol-fs" id="sh-arbol" tabindex="0" role="group" aria-label="Árbol de carpetas y archivos del sistema simulado. Se actualiza con cada comando."></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="meta">LinuxPath<span>|</span>Terminal de práctica</p>
+  </footer>
+  <script src="js/animaciones.js"></script>
+  <script src="js/progreso.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/shell-motor.js"></script>
+  <script src="js/shell-ui.js"></script>
+</body>
+</html>

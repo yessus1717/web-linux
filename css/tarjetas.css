@@ -1,0 +1,76 @@
+/* Lección 1: recorrido por tarjetas. Con JS, la sección se vuelve un escenario fijo y las tarjetas
+   pasan una a una al hacer scroll. Sin JS (o con "reducir movimiento") es una lista normal. */
+.recorrido { padding: 0 0 80px; }
+.pila { display: grid; gap: 16px; width: min(720px, 100% - 32px); margin: 0 auto; }
+.tarjeta { display: flex; flex-direction: column; gap: 24px; padding: 32px; }
+.tarjeta h3 { font: 400 24px/1.15 var(--inter); margin: 8px 0; }
+.tarjeta header > p { color: var(--ash); max-width: 560px; }
+.tarjeta .etq { margin: 0; }
+.grafico { flex: 1; min-height: 0; display: grid; place-items: center; padding: 24px; background: #111214; border-radius: 12px; box-shadow: rgba(255,255,255,.05) 0 1px 0 0 inset; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+.col { display: grid; gap: 8px; align-content: start; }
+.col .etq { margin: 0; }
+
+/* Modo escenario */
+.recorrido.listo { height: calc(var(--n) * 70vh + 100vh); padding: 0; }
+.listo .escena { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; place-items: center; padding-top: 72px; box-sizing: border-box; overflow: hidden; }
+.listo .pila { display: block; position: relative; height: min(600px, 100vh - 168px); height: min(600px, 100svh - 168px); }
+.listo .tarjeta { position: absolute; inset: 0; overflow: auto; opacity: 0; pointer-events: none; transform: translateY(64px) scale(.96);
+  transition: opacity .5s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.listo .tarjeta.activa { opacity: 1; transform: none; pointer-events: auto; z-index: 3; }
+.listo .tarjeta.pasada { opacity: .2; transform: translateY(-40px) scale(.94); }
+.contador { display: none; }
+.listo .contador { display: flex; align-items: center; gap: 16px; position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); font: 400 12px/1 var(--mono); color: var(--ash); }
+.carril { width: 160px; height: 2px; border-radius: 2px; background: var(--grf); overflow: hidden; }
+.barra { display: block; height: 100%; background: var(--mist); transform-origin: left; transition: transform .4s ease; }
+
+/* Gráficos */
+.capas-g { position: relative; display: grid; gap: 24px; width: min(320px, 100%); }
+.cap { padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--ink); text-align: center; font: 500 14px/1.5 var(--inter); }
+.cap.so { background: var(--ember); border-color: #6b3a3b; }
+.pulso { position: absolute; left: 50%; top: 6%; width: 12px; height: 12px; margin-left: -6px; border-radius: 99999px; background: var(--mist); opacity: 0; }
+.anidado { position: relative; width: 100%; max-width: 420px; padding: 40px 24px 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--ink); }
+.anidado > .etq { position: absolute; top: 12px; left: 16px; }
+.anidado.nuc { min-height: 64px; padding: 0; background: var(--ember); border-color: #6b3a3b; }
+.doc { position: relative; display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--ink); }
+.doc i { display: block; width: var(--w); height: 8px; border-radius: 4px; background: var(--ash); transform-origin: left; }
+.doc.cerrado i { filter: blur(3px); opacity: .6; }
+.cand { position: absolute; inset: 0; display: grid; place-items: center; }
+.cand svg { width: 32px; height: 32px; fill: none; stroke: var(--white); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+.chip { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--ink); font: 500 14px/1.3 var(--inter); }
+.chip b { display: grid; place-items: center; flex: none; width: 32px; height: 32px; border-radius: 99999px; background: var(--grf); font: 500 14px/1 var(--sf); }
+.chip small { display: block; margin-top: 2px; font: 400 12px/1.3 var(--inter); color: var(--ash); }
+.arbol { font: 400 13px/1.7 var(--mono); color: var(--mist); white-space: pre; }
+.arbol span { display: block; }
+.par { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.simb { font: 500 24px/1 var(--sf); }
+.nota-g { margin-top: 8px; font-size: 14px; color: var(--ash); }
+.tl { font: 400 14px/1.75 var(--mono); color: var(--mist); }
+.tipea { display: inline-block; width: 21ch; overflow: hidden; white-space: nowrap; vertical-align: bottom; }
+.pasos-w { display: grid; gap: 8px; justify-items: start; }
+.pasos-w span { padding: 4px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--ink); font-size: 14px; }
+
+/* Animaciones: se reproducen cada vez que una tarjeta pasa a ser la activa */
+@keyframes entra { from { opacity: 0; transform: translateY(12px); } }
+@keyframes pop { from { opacity: 0; transform: scale(.6); } }
+@keyframes crece { from { opacity: 0; transform: scale(.85); } }
+@keyframes barrido { from { transform: scaleX(0); } }
+@keyframes escribe { from { width: 0; } }
+@keyframes viaja { 0% { top: 6%; opacity: 0; } 12% { opacity: 1; } 50% { top: 86%; } 88% { opacity: 1; } 100% { top: 6%; opacity: 0; } }
+@keyframes flota { 50% { transform: translateY(-6px); } }
+.activa .cap, .activa .arbol span, .activa .pasos-w span { animation: entra .5s both; animation-delay: calc(var(--i, 0) * .15s); }
+.activa .pasos-w span { animation-delay: calc(var(--i, 0) * .5s); }
+.activa .pulso { animation: viaja 2.6s ease-in-out .8s infinite; }
+.activa .anidado { animation: crece .6s both; animation-delay: calc(var(--i, 0) * .25s); }
+.activa .doc i { animation: barrido .6s both; animation-delay: calc(var(--i, 0) * .12s + .2s); }
+.activa .chip { animation: pop .4s both, flota 4s ease-in-out infinite; animation-delay: calc(var(--i, 0) * .15s), calc(var(--i, 0) * .15s + .5s); }
+.activa .simb { animation: pop .5s .4s both; }
+.activa .tipea { animation: escribe 1.8s steps(21) .3s both; }
+
+@media (max-width: 560px) {
+  .tarjeta { padding: 24px; }
+  .grafico { padding: 16px; }
+  .chips, .cols { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .activa * { animation: none !important; } }

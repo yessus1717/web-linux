@@ -1,0 +1,7 @@
+{
+  "name": "linuxpath",
+  "private": true,
+  "description": "LinuxPath: aprende Linux paso a paso, con cuentas y progreso guardado",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
