@@ -547,6 +547,271 @@
           ]
         },
         {
+          "id": "conseguir-linux",
+          "title": "Cómo conseguir Linux",
+          "sub": "Cuatro caminos para tenerlo",
+          "status": "active",
+          "icon": "download",
+          "exercises": [
+            {
+              "type": "concept",
+              "kicker": "Antes de empezar",
+              "prompt": "Practicar con un Linux de verdad",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Simulador de LinuxPath: seguro, pero no es un equipo real",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Linux real: instalado en tu equipo, con tus propios archivos",
+                  "you": false
+                }
+              ],
+              "body": "Aquí practicas en una terminal simulada, ideal para empezar sin riesgos. Tarde o temprano querrás un Linux de verdad, y hay cuatro caminos para tenerlo: WSL, una máquina virtual, un USB en vivo o instalarlo en el disco. Ninguno es el mejor: depende de cuánto riesgo y esfuerzo quieras asumir."
+            },
+            {
+              "type": "concept",
+              "kicker": "Camino 1",
+              "prompt": "WSL: Linux dentro de Windows",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M4 21c0-4 4-6 8-6s8 2 8 6\"/></svg>",
+                  "text": "wsl --install",
+                  "you": true
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "(Windows instala WSL con Ubuntu y te pide reiniciar)",
+                  "you": false
+                }
+              ],
+              "body": "WSL (Windows Subsystem for Linux) te da una terminal de Linux real dentro de Windows, sin particiones ni máquinas virtuales que configurar a mano. Se instala con un solo comando en PowerShell abierto como administrador, y funciona en Windows 10 (versión 2004 o posterior) y en Windows 11. Es la vía más rápida para practicar comandos."
+            },
+            {
+              "type": "concept",
+              "kicker": "Camino 2",
+              "prompt": "Máquina virtual: un equipo dentro de tu equipo",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Tu equipo",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "→ programa de máquinas virtuales (por ejemplo, VirtualBox)",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "→ Linux, con su propio escritorio",
+                  "you": false
+                }
+              ],
+              "body": "Un programa de virtualización crea un equipo simulado, con su propio disco, que vive como un archivo en el tuyo. Instalas Linux ahí dentro como en un equipo real y, si algo sale mal, borras la máquina y empiezas de nuevo sin tocar tu sistema. Funciona en Windows, macOS y Linux (en Macs con chip Apple hay que usar un programa compatible con ese chip). Eso sí: gasta memoria y espacio de tu equipo mientras está encendida."
+            },
+            {
+              "type": "concept",
+              "kicker": "Camino 3",
+              "prompt": "USB en vivo: probar sin instalar",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "1. Descargas la imagen ISO de la distribución",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "2. La grabas en un USB",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "3. Arrancas el equipo desde el USB",
+                  "you": false
+                }
+              ],
+              "body": "Un USB en vivo (live USB) arranca un Linux completo desde la memoria USB sin tocar tu disco. Sirve para probar Linux en tu equipo real, comprobar que tu hardware funciona bien y, si te convence, empezar desde ahí la instalación. Suele ser más lento que un Linux instalado y lo que hagas se pierde al apagar, salvo que lo configures aparte."
+            },
+            {
+              "type": "concept",
+              "kicker": "Camino 4",
+              "prompt": "Instalarlo en el disco",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Junto a Windows: arranque dual, eliges cuál iniciar al encender",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "En lugar de Windows: Linux ocupa todo el disco",
+                  "you": false
+                }
+              ],
+              "body": "Es la opción con mejor rendimiento y la que más se usa a diario, pero es la única que toca tu disco. Junto a Windows (arranque dual) se reduce una partición para hacer sitio y eliges el sistema al encender. En lugar de Windows, Linux ocupa todo el disco y se borra lo que había. Un error al particionar puede costarte tus archivos: haz una copia de seguridad antes de empezar."
+            },
+            {
+              "type": "choice",
+              "kicker": "Elige la respuesta",
+              "prompt": "Usas Windows 11, quieres practicar comandos ya mismo y no quieres tocar ni particionar tu disco. ¿Qué camino te conviene?",
+              "context": "Piensa en cuál se instala con un comando y no modifica tus particiones.",
+              "options": [
+                "WSL",
+                "Reemplazar Windows por Linux",
+                "Instalar Linux junto a Windows con arranque dual"
+              ],
+              "correctIdx": 0,
+              "explain": "WSL se instala con un solo comando, vive dentro de Windows y no toca tus particiones. Las otras dos opciones sí modifican tu disco."
+            },
+            {
+              "type": "match-pairs",
+              "kicker": "Relaciona cada par",
+              "prompt": "Une cada camino con la situación en la que más conviene",
+              "context": "Cada uno tiene su momento.",
+              "pairs": [
+                {
+                  "left": "WSL",
+                  "right": "Practicar comandos dentro de Windows"
+                },
+                {
+                  "left": "Máquina virtual",
+                  "right": "Probar un escritorio completo y poder borrarlo"
+                },
+                {
+                  "left": "USB en vivo",
+                  "right": "Ver si Linux funciona en tu equipo sin instalar"
+                },
+                {
+                  "left": "Instalación en el disco",
+                  "right": "Usarlo a diario con el mejor rendimiento"
+                }
+              ],
+              "explain": "WSL para la terminal, la máquina virtual para experimentar sin riesgo, el USB en vivo para probar en tu equipo real y la instalación en el disco para el uso diario."
+            },
+            {
+              "type": "order",
+              "kicker": "Ordena los pasos",
+              "prompt": "Vas a crear una máquina virtual con Linux. Ordena los pasos.",
+              "context": "Ya descargaste la imagen ISO de la distribución. Ojo: hay una pieza de más que no debes usar.",
+              "chips": [
+                "Elegir la ISO como disco de inicio",
+                "Borrar tu partición de Windows",
+                "Arrancar la máquina e instalar Linux",
+                "Instalar el programa de máquinas virtuales",
+                "Crear la máquina virtual (memoria y disco)"
+              ],
+              "correctOrder": [
+                "Instalar el programa de máquinas virtuales",
+                "Crear la máquina virtual (memoria y disco)",
+                "Elegir la ISO como disco de inicio",
+                "Arrancar la máquina e instalar Linux"
+              ],
+              "explain": "Primero el programa que crea las máquinas, luego la máquina vacía con su memoria y su disco, después la ISO como disco de inicio y por último arrancas e instalas. Borrar tu partición de Windows no hace falta: la máquina virtual vive en un archivo."
+            },
+            {
+              "type": "choice",
+              "kicker": "Elige la respuesta",
+              "prompt": "Vas a instalar Linux junto a Windows. ¿Qué haces antes de tocar las particiones?",
+              "context": "Cambiar particiones es la única acción de esta lección que puede borrar tus archivos.",
+              "options": [
+                "Una copia de seguridad de tus archivos importantes",
+                "Nada: el instalador protege todo",
+                "Borrar los archivos que no uses para ganar espacio"
+              ],
+              "correctIdx": 0,
+              "explain": "Un corte de luz o un error al elegir el disco pueden perder datos. Con una copia de seguridad en otro disco o en la nube, lo peor que pasa es perder tiempo, no tus archivos."
+            },
+            {
+              "type": "concept",
+              "kicker": "Elegir distribución",
+              "prompt": "¿Qué distribución elegir para empezar?",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Ubuntu · Buena para empezar",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Linux Mint · Escritorio parecido a Windows",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Debian · Muy estable",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Fedora · Software reciente",
+                  "you": false
+                }
+              ],
+              "body": "Para el primer contacto, Ubuntu y Linux Mint son las opciones más habituales: tienen instaladores sencillos y mucha documentación. Si eliges Ubuntu, busca una versión LTS, que recibe soporte durante años. Debian y Fedora también son buenas, pero muchas guías para principiantes usan Ubuntu o Mint. Los comandos básicos que aprendes aquí funcionan igual en todas."
+            },
+            {
+              "type": "choice",
+              "kicker": "Elige la respuesta",
+              "prompt": "No sabes qué distribución elegir. ¿Qué es lo más sensato?",
+              "context": "Recuerda que todas comparten el mismo núcleo.",
+              "options": [
+                "Probar una apta para principiantes, como Ubuntu o Linux Mint: los comandos básicos son los mismos en todas",
+                "Esperar a conocerlas todas antes de instalar ninguna",
+                "Elegir la más desconocida para aprender más"
+              ],
+              "correctIdx": 0,
+              "explain": "Ninguna elección te encierra: las distribuciones comparten núcleo y comandos básicos, así que lo que aprendes sirve en cualquiera. Si una no te gusta, pruebas otra."
+            },
+            {
+              "type": "concept",
+              "kicker": "Tu primera vez",
+              "prompt": "Qué verás al arrancar: el escritorio",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Escritorio: ventanas, iconos y un menú de aplicaciones",
+                  "you": false
+                },
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "Terminal: búscala por su nombre en el menú de aplicaciones",
+                  "you": false
+                }
+              ],
+              "body": "La primera vez verás un escritorio parecido al de Windows o macOS: ventanas, un menú de aplicaciones y un navegador. La terminal es un programa más: ábrela buscando «Terminal» en el menú de aplicaciones. En Ubuntu y Linux Mint también puedes abrirla con Ctrl+Alt+T. En WSL no hay escritorio: abres directamente la terminal de Ubuntu desde el menú Inicio."
+            },
+            {
+              "type": "concept",
+              "kicker": "Tu primera vez",
+              "prompt": "El prompt: así te espera la terminal",
+              "illustration": [
+                {
+                  "who": "<svg class=\"icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M7 9l3 3-3 3M12 15h5\"/></svg>",
+                  "text": "ana@equipo:~$",
+                  "you": false
+                }
+              ],
+              "body": "Al abrir la terminal verás una línea como ana@equipo:~$. Se lee así: ana es tu usuario, equipo es el nombre de la máquina, ~ es la carpeta donde estás (tu carpeta personal) y el $ indica que puedes escribir un comando. Si en vez de $ ves #, estás como root. Aquí en LinuxPath el prompt es parecido."
+            },
+            {
+              "type": "choice",
+              "kicker": "Elige la respuesta",
+              "prompt": "En el prompt ana@equipo:~$, ¿qué indica la «~»?",
+              "context": "Es la parte entre los dos puntos y el $.",
+              "options": [
+                "Tu carpeta personal, donde estás ahora",
+                "Que eres el usuario root",
+                "El nombre de la distribución"
+              ],
+              "correctIdx": 0,
+              "explain": "~ es el atajo de tu carpeta personal. Si cambias de carpeta con cd, esa parte del prompt cambia. Root se reconoce por el # al final, y el nombre de la máquina es lo que va después de la @."
+            }
+          ]
+        },
+        {
           "id": "u1l1",
           "title": "La terminal",
           "sub": "Tu herramienta principal",
